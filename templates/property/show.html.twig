@@ -1,11 +1,70 @@
 {% extends 'base.html.twig' %}
 
+{% block title property.title %}
+
+
 {% block body %}
 <div class="container">
+<div class="class row">
+<div class="class col-md-8">
+</div>
+<div class="class col-md-4">
 <h1> {{ property.title }} </h1>
+<h2> {{ property.rooms }} pièces - {{ property.surface }} m2 à {{ property.city }}</h2>
+<div class="alert alert-warning" style="font-size: 4rem; font-weight: bold;"> {{ property.formattedPrice }}  €</div>
+<a href="#" class="alert alert-success"> Contactez-nous ! </a>
+</div>
+</div>
+<p> {{ property.description }} </p>
+<div class="row">
+<div class="col-md-8">
+
+<h2> Détails complémentaires</h2>
+
+<table class="table-striped">
+<tr>
+    <td> Surface </td>
+     <td> {{ property.surface }} m2 </td>
+</tr>
+
+<tr>
+    <td> Pièces </td>
+     <td> {{ property.rooms }} </td>
+</tr>
+
+<tr>
+    <td> Chambre(s) </td>
+     <td> {{ property.bedrooms }}  </td>
+</tr>
+
+<tr>
+    <td> Parking </td>
+     <td> {{ property.parking }}  </td>
+</tr>
+
+<tr>
+    <td> Piscine </td>
+     <td> {{ property.pool }}  </td>
+</tr>
+
+<tr>
+    <td> Jardin </td>
+     <td> {{ property.garden }}  </td>
+</tr>
+
+
+
+
+
+
+
+
+
+</table>
+</div>
+<div class="col-md-4"></div>
+</div>
 </div>
 {% endblock %}
 
-{% block title %}
 
-{% endblock %}

@@ -2,14 +2,24 @@
 
 {% block title 'Gestion des proprietes' %}
 
+
 {% block body %}
+
+{% for message in app.flashes('success') %}
+<div class="alert alert-success">
+{{ message }}
+</div>
+{% endfor %}
+
 <div class="container mt-4">
 
 <h1>Gestion des proprietes</h1>
 
+
 <table class="table table-striped">
 <thead>
 <tr>
+ </th>
     <th> Titre du bien</th>
         <th> Actions</th>
 </tr>
@@ -19,15 +29,26 @@
 
 <tr>
 <td> {{ property.title }}</td>
-<td><a href="{{ path('admin.property.edit', {id: property.id}) }}" class="btn btn-secondary"> Editer</a></td>
+<td> <a href="{{ path('admin.property.edit', {id: property.id}) }}" class="btn btn-secondary"> Editer</a>
+
+<form  method="post" action="{{ path('admin.property.delete', {id: property.id}) }}" style="display: inline-block">
+
+<input type="hidden" name="_method" value="DELETE">
+<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ property.id) }}">
+<button class="btn btn-danger">Supprimer</button>
+</form>
+</td>
 </tr>
 {% endfor %}
 </tbody>
 </table>
 
 
-</div>
 
+</div>
+<hr>
+<br>
+<a href="{{ path('admin.property.new') }}" class="alert alert-warning">Proposer un nouveau bien</a>
 
 
 

@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
 <div class="container mt-4">
-<h2>Editer la propriete</h2>
+<h2> Inscrire un nouveau bien</h2>
 
 {{ form_start(form) }}
     {{ form_rest(form) }}
-<button class="btn btn-primary"> Editer</button>
+<button class="btn btn-primary">Créer</button>
 {{ form_end(form) }}
 
 
-</div>
+{% endblock %}
 
 
-{% endblock  %}

@@ -61,7 +61,6 @@ class Property
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\Range(min=5, max=5)
      */
     private $postalCode;
 

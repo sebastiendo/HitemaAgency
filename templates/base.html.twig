@@ -20,8 +20,15 @@
       <li class="nav-item">
         <a class="nav-link {% if menu is defined and menu == 'properties' %}active{% endif %}" href="{{ path('property.index')}}">Achat</a>
       </li>
-      
-    
+      </ul>
+
+    {% if app.user %}
+    <ul class="navabar-nav">
+      <li class="nav-item">
+      <a href="{{ path('logout') }}" class="nav-link"> Se déconnecter</a>
+      </li>
+    {% endif %}
+
   </div>
   
 </nav>

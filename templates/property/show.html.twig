@@ -7,19 +7,9 @@
 {% block body %}
 <div class="container">
 <div class="class row">
-<div class="class col-md-8">
-</div>
-<div class="class col-md-4">
-<h1> {{ property.title }} </h1>
-<h2> {{ property.rooms }} pièces - {{ property.surface }} m2 à {{ property.city }}</h2>
-<div class="alert alert-warning" style="font-size: 4rem; font-weight: bold;"> {{ property.formattedPrice }}  €</div>
-<a href="#" class="alert alert-success"> Contactez-nous ! </a>
-</div>
-</div>
-<p> {{ property.description }} </p>
-<div class="row">
-<div class="col-md-8">
-
+<div class="class col-md-7">
+<img src="{{ '/img/Sticker.jpg' }}" alt="Logo Agence" style="width:auto; height:20rem;">
+<br><br>
 <h2> Détails complémentaires</h2>
 
 <table class="table-striped">
@@ -53,17 +43,52 @@
      <td> {{ property.garden }}  </td>
 </tr>
 
-
-
-
-
-
-
-
-
 </table>
+<hr>
+
+<p> {{ property.description }} </p>
+
+
 </div>
-<div class="col-md-4"></div>
+
+<div class="class col-md-5">
+<h1> {{ property.title }} </h1>
+<h2> {{ property.rooms }} pièces - {{ property.surface }} m2 à {{ property.city }}</h2>
+<div class="alert alert-warning" style="font-size: 4rem; font-weight: bold;"> {{ property.formattedPrice }}  €</div>
+
+<a href="#" class="alert alert-success"> Contactez-nous ! </a>
+
+<div id="contactForm" class="mt-4">
+
+{{ form_start(form)}}
+<div class="row">
+
+<div class="col"> {{ form_row(form.firstname) }}
+<div class="col"> {{ form_row(form.lastname) }}
+
+<div class="row">
+
+<div class="col"> {{ form_row(form.phone) }}
+<div class="col"> {{ form_row(form.email) }}
+</div>
+<div class="col"> {{ form_rest(form) }}
+
+<div class="row">
+<button class="btn btn-primary"> Envoyer</button>
+</div>
+
+
+{{ form_end(form)}}
+ </div>
+
+</div>
+
+</div>
+<div class="row">
+<div class="col-md-8">
+
+
+</div>
 </div>
 </div>
 {% endblock %}

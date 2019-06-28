@@ -1,8 +1,11 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Contact;
 use App\Entity\Property;
+use App\Form\ContactType;
 use App\Repository\PropertyRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -34,15 +37,39 @@ class PropertyController extends AbstractController
      *
      * @return Response
      */
-    public function show($slug, $id): Response
+    public function show(string $slug, $id, Property $property, Request $request): Response
     {
-       $property = $this->repository->find($id);
+        if ($property->getSlug() !==$slug) 
+
+        {
+            return $this->redirectToRoute('property.show', [
+                'id' => $property->getId(),
+                'slug' => $property->getSlug()
+            ], 301);
+
+        }
+
+        $contact = new Contact();
+        $contact->setProperty($property);
+        $form = $this->createform(ContactType::class, $contact);
+        $form->handleRequest($request);
+
+       if ($form->isSubmitted() && $form->isValid())
+       {
+           $this->addFlash('success', 'Votre email à bien été envoyé, nous vous répondrons dans les meilleurs délais');
+           return $this->redirectToRoute('property.show', [
+            'id' => $property->getId(),
+            'slug' => $property->getSlug()
+        ]);
+
+       }
+        $property = $this->repository->find($id);
 
         return $this->render('property/show.html.twig', [
            'property' => $property,
-            'menu' => 'properties'
+            'menu' => 'properties',
+            'form' => $form->createView()
         ]);
     }
-
-
+  
 }

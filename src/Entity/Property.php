@@ -2,12 +2,16 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Property;
 use Cocur\Slugify\Slugify;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
+ * Vich\Uploadable()
  */
 class Property
 {
@@ -65,7 +69,7 @@ class Property
     private $postalCode;
 
     /**
-     * @ORM\Column(type="boolean", options={"default": false})
+     * @ORM\Column(type="boolean", options={"default": false}, nullable=true)
      */
     private $sold = false;
 
@@ -278,6 +282,7 @@ class Property
     }
 
    
+    
 
     }
 

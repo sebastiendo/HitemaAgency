@@ -6,6 +6,7 @@ use App\Entity\Property;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 
@@ -51,9 +52,9 @@ class PropertyType extends AbstractType
                 'label' => 'Piscine'])
             
             ->add('garden', null,[
-                'label' => 'Jardin'])
-        ;
-    }
+                'label' => 'Jardin']);
+        
+            }
 
     public function configureOptions(OptionsResolver $resolver)
     {

@@ -1,27 +1,27 @@
 <?php
 namespace App\Entity;
 
-
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Contact {
 
     /**
      * @var string|null
-     * @Assert\Notblank()
+     * @Assert\NotBlank()
      * @Assert\Length(min=2, max=100)
      */
     private $firstname;
 
       /**
      * @var string|null
-     * @Assert\Notblank()
+     * @Assert\NotBlank()
      * @Assert\Length(min=2, max=100)
      */
     private $lastname;
 
     /**
      * @var string|null
-     *  @Assert\Notblank()
+     *  @Assert\NotBlank()
      * @Assert\Regex(
      * pattern="/[0-9]{10}/"
      * )
@@ -30,7 +30,7 @@ class Contact {
 
     /**
      * @var string|null
-     *  @Assert\Notblank()
+     *  @Assert\NotBlank()
      * @Assert\Email()
      */
     private $email;
@@ -38,7 +38,7 @@ class Contact {
     
     /**
      * @var string|null
-     *  @Assert\Notblank()
+     *  @Assert\NotBlank()
      * @Assert\Length(min=10)
      */
     private $message;

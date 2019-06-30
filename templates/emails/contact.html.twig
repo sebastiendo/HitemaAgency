@@ -1,0 +1,16 @@
+<h3>{{contact.property.title }}</h3>
+
+Un visiteur souhaite obtenir des informations sur le bien suivant:
+<a href="{{ url('property.show', {id: contact.property.id, slug: contact. property.slug}) }}">{{contact.property.title }}</a>
+
+</br>
+Information visiteur :
+ {{ contact.firstname }}, {{ contact.lastname}}! 
+
+</br>
+Son message : {{ contact.message }}
+<hr>
+
+
+{# Makes an absolute URL to the /images/logo.png file #}
+<img src="{{ absolute_url(asset('img/Sticker.jpg')) }}">

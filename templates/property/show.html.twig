@@ -6,91 +6,79 @@
 
 {% block body %}
 <div class="container">
-<div class="class row">
-<div class="class col-md-7">
-<img src="{{ '/img/Sticker.jpg' }}" alt="Logo Agence" style="width:auto; height:20rem;">
-<br><br>
-<h2> Détails complémentaires</h2>
+    <div class="class row">
+        <div class="class col-md-7">
+        <img src="{{ '/img/Sticker.jpg' }}" alt="Logo Agence" style="width:auto; height:20rem;">
+        <br><br>
+        <h2> Détails complémentaires</h2>
 
-<table class="table-striped">
-<tr>
-    <td> Surface </td>
-     <td> {{ property.surface }} m2 </td>
-</tr>
+        <table class="table-striped">
+        <tr>
+            <td> Surface </td>
+            <td> {{ property.surface }} m2 </td>
+        </tr>
 
-<tr>
-    <td> Pièces </td>
-     <td> {{ property.rooms }} </td>
-</tr>
+        <tr>
+            <td> Pièces </td>
+            <td> {{ property.rooms }} </td>
+        </tr>
 
-<tr>
-    <td> Chambre(s) </td>
-     <td> {{ property.bedrooms }}  </td>
-</tr>
+        <tr>
+            <td> Chambre(s) </td>
+            <td> {{ property.bedrooms }}  </td>
+        </tr>
 
-<tr>
-    <td> Parking </td>
-     <td> {{ property.parking }}  </td>
-</tr>
+        <tr>
+            <td> Parking </td>
+            <td> {{ property.parking }}  </td>
+        </tr>
 
-<tr>
-    <td> Piscine </td>
-     <td> {{ property.pool }}  </td>
-</tr>
+        <tr>
+            <td> Piscine </td>
+            <td> {{ property.pool }}  </td>
+        </tr>
 
-<tr>
-    <td> Jardin </td>
-     <td> {{ property.garden }}  </td>
-</tr>
+        <tr>
+            <td> Jardin </td>
+            <td> {{ property.garden }}  </td>
+        </tr>
 
-</table>
-<hr>
+        </table>
+        <hr>
 
-<p> {{ property.description }} </p>
-
-
-</div>
-
-<div class="class col-md-5">
-<h1> {{ property.title }} </h1>
-<h2> {{ property.rooms }} pièces - {{ property.surface }} m2 à {{ property.city }}</h2>
-<div class="alert alert-warning" style="font-size: 4rem; font-weight: bold;"> {{ property.formattedPrice }}  €</div>
-
-<a href="#" class="alert alert-success"> Contactez-nous ! </a>
-
-<div id="contactForm" class="mt-4">
-
-{{ form_start(form)}}
-<div class="row">
-
-<div class="col"> {{ form_row(form.firstname) }}
-<div class="col"> {{ form_row(form.lastname) }}
-
-<div class="row">
-
-<div class="col"> {{ form_row(form.phone) }}
-<div class="col"> {{ form_row(form.email) }}
-</div>
-<div class="col"> {{ form_rest(form) }}
-
-<div class="row">
-<button class="btn btn-primary"> Envoyer</button>
-</div>
+        <p> {{ property.description }} </p>
 
 
-{{ form_end(form)}}
- </div>
+        </div>
 
-</div>
+        <div class="class col-md-5">
+            <h1> {{ property.title }} </h1>
+            <h2> {{ property.rooms }} pièces - {{ property.surface }} m2 à {{ property.city }}</h2>
+            <div class="alert alert-warning" style="font-size: 4rem; font-weight: bold;"> {{ property.formattedPrice }}  €</div>
 
-</div>
-<div class="row">
-<div class="col-md-8">
+            <a href="#" class="alert alert-success"> Contactez-nous ! </a>
 
+            <div id="contactForm" class="mt-4">
 
-</div>
-</div>
+                {{ form_start(form)}}
+                <div class="row">
+                    <div class="col"> {{ form_row(form.firstname) }} </div>
+                    <div class="col"> {{ form_row(form.lastname) }} </div>
+                </div>
+
+                <div class="row">
+                    <div class="col"> {{ form_row(form.phone) }} </div>
+                    <div class="col"> {{ form_row(form.email) }} </div>
+                </div>
+
+                <div class="row">
+                    <div class="col"> {{ form_rest(form) }} </div>
+                </div>
+
+                {{ form_rest(form) }}
+                {{ form_end(form)}}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
-
-

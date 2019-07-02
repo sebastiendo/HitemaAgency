@@ -1,4 +1,6 @@
 security:
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         from_database:
@@ -30,7 +32,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/biens, roles: ROLE_USER }
 
     encoders: 
         App\Entity\User:

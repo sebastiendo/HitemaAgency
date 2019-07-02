@@ -72,7 +72,7 @@ class PropertyController extends AbstractController
             $contact->setMessage($form->get('message')->getData());
             
             $message = (new \Swift_Message('Agence :' . $contact->getProperty()->getTitle()))
-            ->setFrom('hitema.agency@gmail.com')
+            ->setFrom($contact->getEmail())
             ->setTo('hitema.agency@gmail.com')
             ->setReplyTo($contact->getEmail())
             ->setBody($this->render->render('emails/contact.html.twig', [

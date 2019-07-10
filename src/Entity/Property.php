@@ -37,6 +37,7 @@ class Property
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(min=1, max=15)
      */
     private $rooms;
 
@@ -47,6 +48,8 @@ class Property
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(min=50000, max=1000000)
+
      */
     private $price;
 
